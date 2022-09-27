@@ -36,6 +36,7 @@ def kaito(seikai):
         else:
             print("欠損文字も含めて完全正解です")
             return True
+            
     else:
         print("不正解です。またチャレンジしてください")
         return False
