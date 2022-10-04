@@ -36,38 +36,35 @@ entry.grid(row=0, column=0, columnspan=10)
 
 r=1
 c=0
-L1 = list(range(9, 6, -1))
-L2 = list(range(6, 3, -1))
-L3 = list(range(3, 0, -1))
-for i, num in enumerate(L1+["+"]+L2+["-"]+L3+["*"]+["/", "0"], 1):
-    button = tk.Button(root, text=f"{num}", font=("", 30), width=3, height=1)
-    button.bind("<1>", click_num)
-    button.grid(row=r, column=c)
-    c += 1
-    if i%4 == 0:
-        r+=1
-        c=0
-
-button = tk.Button(root, text="C", font=("", 30), width=3, height=1)
-button.bind("<1>", click_Clear)
-button.grid(row=r, column=c)
-r=4
-c=3
-
-button = tk.Button(root, text="=", font=("", 30), width=3, height=1, bg = "#87cefa")
-button.bind("<1>", click_equal)
-button.grid(row=r, column=c)
-r+=1
-c=0
-
-button = tk.Button(root, text="%", font=("", 30), width=3, height=1)
-button.bind("<1>", click_percent)
-button.grid(row=r, column=c)
-c+=1
+BUTTON=[
+    ["7", "8", "9", "+"],
+    ["4", "5", "6", "-"],
+    ["1", "2", "3", "*"],
+    ["C", "0", "%", "/"]
+]
+for i in BUTTON:
+    for j in range(len(i)):
+        num = i[j]    
+        btn = tk.Button(root, text=f"{num}", font=("", 30), width=3, height=1)
+        if (num == "C"):
+            btn.bind("<1>", click_Clear)
+        elif (num == "%"):
+            btn.bind("<1>", click_percent)
+        else:
+            btn.bind("<1>", click_num)
+        btn.grid(row=r, column=c)
+        c += 1
+        if j == 3:
+            r += 1
+            c = 0
 
 button = tk.Button(root, text="a", font=("", 30), width=3, height=1, bg = "#ffa500")
 button.bind("<1>", click_amazon)
 button.grid(row=r, column=c)
+c = 3
 
+button = tk.Button(root, text="=", font=("", 30), width=3, height=1, bg = "#87cefa")
+button.bind("<1>", click_equal)
+button.grid(row=r, column=c)
 
 root.mainloop()
