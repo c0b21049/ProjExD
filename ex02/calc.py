@@ -19,7 +19,7 @@ def click_equal(event):
 def click_Clear(event):
     entry.delete(0, tk.END)
 
-def click_a(event):
+def click_amazon(event):
     webbrowser.open(url)
 
 def click_percent(event):
@@ -66,7 +66,7 @@ button.grid(row=r, column=c)
 c+=1
 
 button = tk.Button(root, text="a", font=("", 30), width=3, height=1, bg = "#ffa500")
-button.bind("<1>", click_a)
+button.bind("<1>", click_amazon)
 button.grid(row=r, column=c)
 
 
