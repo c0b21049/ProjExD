@@ -13,24 +13,38 @@ def click_equal(event):
     entry.delete(0, tk.END)
     entry.insert(tk.END, ans)
 
+def click_Clear(event):
+    entry.delete(0, tk.END)
+
+
 root = tk.Tk()
 root.geometry("300x500")
 
 entry = tk.Entry(root, width=10, font=("", 40), justify="right")
-entry.grid(row=0, column=0, columnspan=3)
+entry.grid(row=0, column=0, columnspan=10)
 
 r=1
 c=0
-for i, num in enumerate(list(range(9, -1, -1))+["+"], 1):
-    button = tk.Button(root, text=f"{num}", font=("", 30), width=4, height=2)
+L1 = list(range(9, 6, -1))
+L2 = list(range(6, 3, -1))
+L3 = list(range(3, 0, -1))
+for i, num in enumerate(L1+["+"]+L2+["-"]+L3+["*"]+["/", "0"], 1):
+    button = tk.Button(root, text=f"{num}", font=("", 30), width=3, height=1)
     button.bind("<1>", click_num)
     button.grid(row=r, column=c)
     c += 1
-    if i%3 == 0:
+    L2 = ["+", "-", "*", "/"]
+    if i%4 == 0:
         r+=1
         c=0
 
-button = tk.Button(root, text="=", font=("", 30), width=4, height=2)
+button = tk.Button(root, text="C", font=("", 30), width=3, height=1)
+button.bind("<1>", click_Clear)
+button.grid(row=r, column=c)
+r=4
+c=3
+
+button = tk.Button(root, text="=", font=("", 30), width=3, height=1, bg = "#87cefa")
 button.bind("<1>", click_equal)
 button.grid(row=r, column=c)
 
