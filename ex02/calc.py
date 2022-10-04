@@ -1,5 +1,8 @@
 import tkinter as tk
 import tkinter.messagebox as tkm
+import webbrowser
+
+url = "https://www.amazon.co.jp/"
 
 def click_num(event):
     btn = event.widget
@@ -16,6 +19,14 @@ def click_equal(event):
 def click_Clear(event):
     entry.delete(0, tk.END)
 
+def click_a(event):
+    webbrowser.open(url)
+
+def click_percent(event):
+    per = entry.get()
+    ans = eval(f"{per}/100")
+    entry.delete(0, tk.END)
+    entry.insert(tk.END, ans)
 
 root = tk.Tk()
 root.geometry("300x500")
@@ -47,5 +58,17 @@ c=3
 button = tk.Button(root, text="=", font=("", 30), width=3, height=1, bg = "#87cefa")
 button.bind("<1>", click_equal)
 button.grid(row=r, column=c)
+r+=1
+c=0
+
+button = tk.Button(root, text="%", font=("", 30), width=3, height=1)
+button.bind("<1>", click_percent)
+button.grid(row=r, column=c)
+c+=1
+
+button = tk.Button(root, text="a", font=("", 30), width=3, height=1, bg = "#ffa500")
+button.bind("<1>", click_a)
+button.grid(row=r, column=c)
+
 
 root.mainloop()
