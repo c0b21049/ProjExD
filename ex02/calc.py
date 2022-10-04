@@ -44,7 +44,6 @@ for i, num in enumerate(L1+["+"]+L2+["-"]+L3+["*"]+["/", "0"], 1):
     button.bind("<1>", click_num)
     button.grid(row=r, column=c)
     c += 1
-    L2 = ["+", "-", "*", "/"]
     if i%4 == 0:
         r+=1
         c=0
