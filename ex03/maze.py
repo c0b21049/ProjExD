@@ -51,9 +51,10 @@ def main_proc():
         if key == "Right":
             mx -= 1
     #エネミー(ナイフ)の挙動設定
+    l = [-1, 1]
     if key == "Up" or key =="Down" or key == "Left" or key == "Right":
-        x = random.randint(-1, 1)
-        y = random.randint(-1, 1)
+        x = random.choice(l)
+        y = random.choice(l)
         mx2 += x
         my2 += y
     if maze_lst[my2][mx2] == 0:
