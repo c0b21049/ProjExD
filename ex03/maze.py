@@ -57,7 +57,7 @@ def main_proc():
         mx2 += x
         my2 += y
     if maze_lst[my2][mx2] == 0:
-        cx2, cy2 = mx2*300+50, my2*100+50
+        cx2, cy2 = mx2*100+50, my2*100+50
     else:
         my2 -= y
         mx2 -= x
