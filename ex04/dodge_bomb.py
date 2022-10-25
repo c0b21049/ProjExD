@@ -113,7 +113,6 @@ def main():
             # else:
             #touch+=1
             #return
-            
         pg.display.update() 
         clock.tick(1000)
 
