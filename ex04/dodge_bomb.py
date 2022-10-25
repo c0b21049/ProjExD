@@ -68,11 +68,13 @@ def main():
             if event.type == pg.QUIT:
                 return
         #こうかとんの移動処理
+        #左右上下のキーで移動
         key_states = pg.key.get_pressed()
         if key_states[pg.K_UP]:tori_rct.centery -=1#こうかとんの縦座標を-1
         if key_states[pg.K_DOWN]:tori_rct.centery +=1#こうかとんの縦座標を+1
         if key_states[pg.K_LEFT]:tori_rct.centerx -=1
         if key_states[pg.K_RIGHT]:tori_rct.centerx +=1
+        #こうかとんが外に行かないための処理
         yoko, tate = check_bound(tori_rct, scrn_rct)
         if yoko == -1:
             if key_states[pg.K_LEFT]:
@@ -88,6 +90,7 @@ def main():
 
         # if key_states[pg.K_0]:
         #     bomb
+        #爆弾の跳ね返り
         yoko, tate = check_bound(bomb_rct, scrn_rct)   
         vx *= yoko
         vy *= tate     
@@ -101,6 +104,7 @@ def main():
         if tori_rct.colliderect(bomb_rct):
             blow_rct.center = bomb_rct.center
             scrn_sfc.blit(blow_sfc, blow_rct)
+            #3回まで接触可能にする(爆弾の色も変える)
             # if touch == 0:
             #     bomb_sfc = pg.Surface((20, 20))
             #     bomb_sfc.set_colorkey((0, 0, 0))
