@@ -97,18 +97,16 @@ def main():
 
         #爆弾とこうかとんが接触時に爆破
         global touch
-        touch = 0
+        #touch = 0
         if tori_rct.colliderect(bomb_rct):
             blow_rct.center = bomb_rct.center
             scrn_sfc.blit(blow_sfc, blow_rct)
-            if touch == 0:
-                bomb_sfc = pg.Surface((20, 20))
-                bomb_sfc.set_colorkey((0, 0, 0))
-                pg.draw.circle(bomb_sfc, (255, 250, 0), (bomb_rct.centerx, bomb_rct.centery), 10)
-                bomb_rct = bomb_sfc.get_rect()
-                
+            # if touch == 0:
+            #     bomb_sfc = pg.Surface((20, 20))
+            #     bomb_sfc.set_colorkey((0, 0, 0))
+            #     pg.draw.circle(bomb_sfc, (255, 250, 0), (bomb_rct.centerx, bomb_rct.centery), 10)
+            #     bomb_rct = bomb_sfc.get_rect()
             # else:
-            
             #touch+=1
             #return
             
