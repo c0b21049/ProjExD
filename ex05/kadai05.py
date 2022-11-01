@@ -4,13 +4,6 @@ from random import randint
 import time
 
 
-# class Bgm:
-#     def __init__(self, bgm):
-#         pg.mixer.init(frequency = 44100)
-#         pg.mixer.music.load(bgm)
-#         pg.mixer.music.play(-1)
-#         time.sleep(1000) 
-
 class Screen:
     def __init__(self, title, wh, bgimg):
         pg.display.set_caption(title) #逃げろ！こうかとん
@@ -114,7 +107,7 @@ def main():
     # 練習5
     bkd = Bomb((255, 0, 0), 10, (+1, +1), scr)
 
-    blw = blow("fig/blow.png", 1.0, bkd.rct.center)
+    blw = blow("fig/blow.png", 1.0, kkt.rct.center)
 
   
 
