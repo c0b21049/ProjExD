@@ -98,11 +98,15 @@ def main():
     pg.mixer.init(frequency = 44100)
     pg.mixer.music.load("fig/bgm.mp3")
     pg.mixer.music.play(-1)
-    
-    scr = Screen("負けるな！こうかとん", (1600, 900), "fig/pg_bg.jpg") # スクリーン生成
-    kkt = Bird("fig/6.png", 2.0, (900, 800)) # こうかとん生成
-    bkd = Bomb((255, 0, 0), 10, (+1, +1), scr) # 爆弾生成
-    blw = blow("fig/blow.png", 1.0, kkt.rct.center) # 爆風生成
+
+    # スクリーン生成
+    scr = Screen("負けるな！こうかとん", (1600, 900), "fig/pg_bg.jpg") # スクリーン名、サイズ、読み込む画像
+    # こうかとん生成
+    kkt = Bird("fig/6.png", 2.0, (900, 800)) # 読み込む画像、倍率、位置
+    # 爆弾生成
+    bkd = Bomb((255, 0, 0), 10, (+1, +1), scr) # 色、サイズ、移動設定
+    # 爆風生成
+    blw = blow("fig/blow.png", 1.0, kkt.rct.center) # 読み込む画像、倍率、位置
 
     clock = pg.time.Clock() # 練習1
     while True:
