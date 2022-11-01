@@ -80,7 +80,7 @@ class blow:
         self.blit(scr)
 
 
-def check_bound(obj_rct, scr_rct):
+def check_bound(obj_rct, scr_rct): # 壁に当たった時の処理
     """
     obj_rct：こうかとんrct，または，爆弾rct
     scr_rct：スクリーンrct
@@ -98,18 +98,11 @@ def main():
     pg.mixer.init(frequency = 44100)
     pg.mixer.music.load("fig/bgm.mp3")
     pg.mixer.music.play(-1)
-    # 練習1
-    scr = Screen("負けるな！こうかとん", (1600, 900), "fig/pg_bg.jpg")
-
-    # 練習3
-    kkt = Bird("fig/6.png", 2.0, (900, 800))
-
-    # 練習5
-    bkd = Bomb((255, 0, 0), 10, (+1, +1), scr)
-
-    blw = blow("fig/blow.png", 1.0, kkt.rct.center)
-
-  
+    
+    scr = Screen("負けるな！こうかとん", (1600, 900), "fig/pg_bg.jpg") # スクリーン生成
+    kkt = Bird("fig/6.png", 2.0, (900, 800)) # こうかとん生成
+    bkd = Bomb((255, 0, 0), 10, (+1, +1), scr) # 爆弾生成
+    blw = blow("fig/blow.png", 1.0, kkt.rct.center) # 爆風生成
 
     clock = pg.time.Clock() # 練習1
     while True:
@@ -128,7 +121,7 @@ def main():
         # 練習8
         if kkt.rct.colliderect(bkd.rct): # こうかとんrctが爆弾rctと重なったら
             blw.update(scr)
-            pg.mixer.music.load("fig/bomb.mp3")
+            pg.mixer.music.load("fig/bomb.mp3") # 爆破音
             pg.mixer.music.play(1)
         #     return
 
